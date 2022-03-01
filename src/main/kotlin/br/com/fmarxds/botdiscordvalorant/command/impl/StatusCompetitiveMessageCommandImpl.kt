@@ -2,8 +2,8 @@ package br.com.fmarxds.botdiscordvalorant.command.impl
 
 import br.com.fmarxds.botdiscordvalorant.command.MessageCommand
 import br.com.fmarxds.botdiscordvalorant.service.ValorantService
-import br.com.fmarxds.botdiscordvalorant.service.impl.ValorantServiceImpl
 import dev.kord.core.entity.Message
+import dev.kord.core.entity.ReactionEmoji
 
 class StatusCompetitiveMessageCommandImpl(
 
@@ -21,7 +21,16 @@ class StatusCompetitiveMessageCommandImpl(
 
         val playerCompetitiveData = valorantService.playerCompetitiveData(arguments[0], arguments[1])
 
-        message.channel.createMessage(playerCompetitiveData.currentTierPatched)
+        val responseMessage = """
+            ```
+                 PLAYER: $argument
+                   RANK: ${playerCompetitiveData.currentTierPatched}
+                 PONTOS: ${playerCompetitiveData.rankingInTier}
+            ULTIMO JOGO: ${playerCompetitiveData.mmrChangeToLastGame}
+            ```
+        """.trimIndent()
+
+        message.channel.createMessage(responseMessage)
 
     }
 
