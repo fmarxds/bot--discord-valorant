@@ -6,6 +6,7 @@ import dev.kord.core.Kord
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
 
+
 suspend fun main() {
 
     val botClient = Kord(System.getenv("bot_token"))
@@ -27,6 +28,8 @@ suspend fun main() {
 
     }
 
-    botClient.login()
+    botClient.login {
+        println("Application up!")
+    }
 
 }
