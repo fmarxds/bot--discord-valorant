@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
     application
 }
 
@@ -16,6 +17,7 @@ dependencies {
     implementation("dev.kord:kord-core:0.8.0-M10")
     implementation("org.slf4j:slf4j-api:1.7.36")
     implementation("org.slf4j:slf4j-simple:1.7.36")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.10")
     testImplementation(kotlin("test"))
 }
 

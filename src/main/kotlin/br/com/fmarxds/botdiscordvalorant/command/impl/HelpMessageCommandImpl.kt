@@ -15,7 +15,7 @@ class HelpMessageCommandImpl : MessageCommand {
         val sb = StringBuilder()
 
         CommandHelper.COMMANDS.forEach {
-            sb.append("> ${it.commandName()}: ${it.commandDescription()}\n")
+            sb.append("- ${it.commandName()}: ${it.commandDescription()}\n")
         }
 
         message.channel.createMessage("Comandos dispníveis:\n$sb")
